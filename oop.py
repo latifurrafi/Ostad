@@ -210,3 +210,56 @@
 # objgrandfather = grandfather()
 # print(objgrandfather._z)
 
+# class Myclass:
+#     x = 10
+#     y = 20
+
+#     def __init__(self,a,b):
+#         print("I am Constractor")
+#         print(self.x+self.y)
+#         print(a+b)
+
+# Myclass(5,10)
+
+# class Myclass:
+#     x = 10
+#     y = 20
+
+#     def __init__(self,a):
+#         self.a = a
+
+#     def addtwo(self):
+#         print(self.x + self.a)
+
+# obj = Myclass(100)
+# print(obj.a)
+# obj.addtwo()
+
+# class Myclass:
+#     x = 10
+#     y = 20
+
+#     @staticmethod
+#     def addtwo():
+#         print(Myclass.x+Myclass.y)
+
+# Myclass.addtwo()
+
+# obj = Myclass()
+# obj.addtwo()
+
+class Myclass:
+    x = 10
+    y = 20
+
+    @staticmethod
+    def addtwo():
+        print(Myclass.x+Myclass.y)
+print("Without Creating Object : ")
+print(Myclass.x)
+print(Myclass.y)
+
+print("After Creating Object : ")
+obj = Myclass()
+print(obj.x)
+print(obj.y)
