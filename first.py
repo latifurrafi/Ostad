@@ -96,3 +96,14 @@
 #         data.append(row)
 
 # print(data)
+
+# try:
+#     result = 10/0
+#     print(result)
+
+# except ZeroDivisionError:
+#     print("ZeroDivisionError")
+
+# finally:
+#     print("NoProblem")
+
