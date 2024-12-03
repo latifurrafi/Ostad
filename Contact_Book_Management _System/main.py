@@ -1,14 +1,23 @@
-lst = []
+from shared_files import load_contacts_from_file, save_contacts_to_file
+from add_contacts import add_contacts
+from view_contacts import view_contacts
+def main():
+    load_contacts_from_file()
 
-print("Welcome To Contacts Management System")
-print("1. Add Contacts.")
-print("2. Remove Contacts.")
-print("3. Search Contacts.")
-print("4. View Contacts.")
-print("5. Exit")
-
-option = int(input("Enter Your Choice : "))
 while True:
+    print("\t\tWelcome To Contacts Books System")
+    print("\t\t\t1. Add Contacts.")
+    print("\t\t\t2. Remove Contacts.")
+    print("\t\t\t3. Search Contacts.")
+    print("\t\t\t4. View Contacts.")
+    print("\t\t\t5. Exit")
+
+    try:
+        option = int(input("Enter Your Choice : "))
+    except ValueError:
+        print("Invalid Input, Please Enter a Number Between 1 to 5")
+        continue
+
     if option == 1:
         add_contacts()
 
@@ -22,5 +31,12 @@ while True:
         view_contacts()
 
     elif option == 5:
-        print("Thanks For Using Contacts Book.")
+        print("\t\tThanks For Using Contacts Book.")
         break
+
+    else:
+        print("Invalid Choice. Please Try Again")
+    
+
+if __name__ == "__main__":
+    main()
