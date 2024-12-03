@@ -1,6 +1,9 @@
 from shared_files import load_contacts_from_file, save_contacts_to_file
 from add_contacts import add_contacts
 from view_contacts import view_contacts
+from remove_contacts import remove_contacts
+from search_contacts import search_contacts
+
 def main():
     load_contacts_from_file()
 
@@ -9,7 +12,7 @@ while True:
     print("\t\t\t1. Add Contacts.")
     print("\t\t\t2. Remove Contacts.")
     print("\t\t\t3. Search Contacts.")
-    print("\t\t\t4. View Contacts.")
+    print("\t\t\t4. View All Contacts.")
     print("\t\t\t5. Exit")
 
     try:
