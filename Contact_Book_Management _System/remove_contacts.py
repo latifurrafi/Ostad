@@ -21,4 +21,4 @@ def remove_contacts():
         if not phoneNum_found:
             print("\t\tNo Contact Found With This Number.")
     except ValueError:
-        print("\t\tInvalid Input! Please enter a valid phone number.")
+        print("\t\tInvalid Input, Please Enter a Valid Phone Number.")
