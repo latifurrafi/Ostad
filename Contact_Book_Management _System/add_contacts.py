@@ -5,50 +5,47 @@ def validate_email(email):
     pattern = r'^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$'
     return re.match(pattern, email)
 
-def phone_duplicate(contact_book, phone):
-    for new_contact in contact_book:
-        if new_contact["phone"] == phone:
-            return True
-    return False
+def phone_duplicate(phone):
+    return any(contact['phone'] == phone for contact in contact_list)
 
 def add_contacts():
     while True:
         try:
-            name = input("Enter Name: ")
+            name = input("Enter Name: ").strip()
             if not name.isalpha():
-                raise ValueError("Name must contain only letters.")
+                raise ValueError("\tName must contain only letters.")
             break
         except ValueError as e:
-            print(e)
+            print(f"Error: {e}")
 
     while True:
         try:
-            phone = input("Enter Phone Number: ")
+            phone = input("Enter Phone Number: ").strip()
             if not phone.isdigit():
-                raise ValueError("Phone number must be in Digit.")
+                raise ValueError("\tPhone number must be an integer.")
             phone = int(phone)
-            if phone_duplicate(contact_list, phone):
-                raise ValueError("Phone Number Already Exists, Please Enter New Phone Number. ")
+            if phone_duplicate(phone):
+                raise ValueError("\tPhone number already exists. Please enter a new phone number.")
             break
         except ValueError as e:
-            print(e)
+            print(f"Error: {e}")
 
+    while True:
+        try:
+            email = input("Enter Email: ").strip()
+            if not validate_email(email):
+                raise ValueError("\tInvalid email format. Please enter a valid email address.")
+            break
+        except ValueError as e:
+            print(f"Error: {e}")
 
-    email = input("Enter Email : ")
-    while not validate_email(email):
-        print("Invalid Email. Please try agian.")
-        email = input("Enter Email : ")
+    while True:
+        address = input("Enter Address: ").strip()
+        if address:
+            break
+        print("\tAddress cannot be empty. Please enter a valid address.")
 
-    address = input("Enter Address : ")
-    if not address.strip():
-        print("Address Cannot Be Empty.")
-
-    new_contact = {
-        "name" : name,
-        "phone" : phone,
-        "email" : email,
-        "address" : address
-    }
-    contact_list.append(new_contact)
+    contact = {"name": name, "phone": phone, "email": email, "address": address}
+    contact_list.append(contact)
     save_contacts_to_file()
-    print("\t\tContact Add Successfully.\n")
+    print("\tContact added successfully!\n")
