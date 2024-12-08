@@ -248,18 +248,19 @@
 # obj = Myclass()
 # obj.addtwo()
 
-class Myclass:
-    x = 10
-    y = 20
+# class Myclass:
+#     x = 10
+#     y = 20
 
-    @staticmethod
-    def addtwo():
-        print(Myclass.x+Myclass.y)
-print("Without Creating Object : ")
-print(Myclass.x)
-print(Myclass.y)
+#     @staticmethod
+#     def addtwo():
+#         print(Myclass.x+Myclass.y)
+# print("Without Creating Object : ")
+# print(Myclass.x)
+# print(Myclass.y)
 
-print("After Creating Object : ")
-obj = Myclass()
-print(obj.x)
-print(obj.y)
+# print("After Creating Object : ")
+# obj = Myclass()
+# print(obj.x)
+# print(obj.y)
+
