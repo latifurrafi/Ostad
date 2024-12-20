@@ -29,3 +29,5 @@ def save_books_to_file():
             book['author'] = book['author'].title()
             content = f"{book['title']} || {book['author']} || {book['isbn']} || {book['pub_year']} || {book['price']} || {book['quantity']}\n"
             file.write(content)
+
+

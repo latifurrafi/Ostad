@@ -1,0 +1,76 @@
+-- Active: 1734301207878@@127.0.0.1@3306@HMS_DB
+-- For Departments Table
+CREATE TABLE Departments (
+    DepartmentID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Location VARCHAR(100) NOT NULL
+);
+
+-- For Doctors Table
+CREATE TABLE Doctors (
+    DoctorID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Specialization VARCHAR(100),
+    Phone VARCHAR(15) NOT NULL,
+    DepartmentID INT,
+    FOREIGN KEY (DepartmentID) REFERENCES Departments(DepartmentID) ON DELETE SET NULL
+);
+
+-- For Patients Table
+CREATE TABLE Patients (
+    PatientID INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    Age INT NOT NULL,
+    Gender ENUM('Male', 'Female', 'Other') NOT NULL,
+    Phone VARCHAR(15) NOT NULL
+);
+
+-- For Appointments Table
+CREATE TABLE Appointments (
+    AppointmentID INT AUTO_INCREMENT PRIMARY KEY,
+    Date DATE NOT NULL,
+    Time TIME NOT NULL,
+    Status ENUM('Scheduled', 'Completed', 'Cancelled') NOT NULL,
+    DoctorID INT,
+    PatientID INT,
+    FOREIGN KEY (DoctorID) REFERENCES Doctors(DoctorID) ON DELETE CASCADE,
+    FOREIGN KEY (PatientID) REFERENCES Patients(PatientID) ON DELETE CASCADE
+);
+
+-- Inserting Data In Departments
+INSERT INTO Departments (Name, Location) VALUES
+('Cardiology', 'Dhaka Medical College, Building A'),
+('Neurology', 'Cumilla Medical College, Building B'),
+('Orthopedics', 'Sir Salimullah Medical College, Building C'),
+('Pediatrics', 'Shaheed Suhrawardy Medical College, Building D'),
+('Radiology', 'Sher-e-Bangla Medical College, Building E');
+
+-- Inserting Data In Doctors
+INSERT INTO Doctors (Name, Specialization, Phone, DepartmentID) VALUES
+('Dr. Mizanur Rahman', 'Cardiologist', '1111111111', 1),
+('Dr. Farzana Sultana Nipa', 'Neurologist', '2222222222', 2),
+('Dr. Abu Baker', 'Orthopedic Surgeon', '3333333333', 3),
+('Dr. Shamsul Alam Sabuj.', 'Pediatrician', '4444444444', 4),
+('Dr. Md. Abdul Wohab Khan', 'Radiologist', '5555555555', 5);
+
+
+-- Inseting Data In patients
+INSERT INTO Patients (Name, Age, Gender, Phone) VALUES
+('Abu Hanif', 45, 'Male', '99889898'),
+('Sumaiya Afrin', 30, 'Female', '56565646'),
+('Mehedi Hassan', 60, 'Male', '76767676'),
+('Mohammad Sohaib Islam Shibly', 12, 'Female', '6565656565'),
+('Mohammed Habibur Rahman', 25, 'Male', '434343434');
+
+
+-- Inserting Data In Appointments
+INSERT INTO Appointments (Date, Time, Status, DoctorID, PatientID) VALUES
+('2030-12-21', '10:00:00', 'Scheduled', 1, 1),
+('2024-12-19', '11:00:00', 'Completed', 2, 2),
+('2025-12-23', '12:00:00', 'Scheduled', 3, 3),
+('2024-12-16', '09:00:00', 'Cancelled', 4, 4),
+('2055-12-25', '14:00:00', 'Scheduled', 5, 5);
+
+
+-- Update Data In Patients Name Using PatienID
+UPDATE Patients SET Name = 'Lubna Begum' WHERE PatientID = 4;
