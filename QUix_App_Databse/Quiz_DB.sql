@@ -51,6 +51,8 @@ CREATE TABLE Student_Answers (
 );
 
 
+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
+
 -- Insert into Users
 INSERT INTO Users (id, name, role, created_at) VALUES
 (1, 'Alice Smith', 'teacher', '2024-01-01 10:00:00'),
