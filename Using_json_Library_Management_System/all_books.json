@@ -20,13 +20,13 @@
         "bookLastUpdatedAt": ""
     },
     {
-        "title": "dhaka",
+        "title": "infarno",
         "author": "rafi",
-        "isbn": 26716,
-        "year": 2222,
-        "price": 33,
-        "quantity": 3,
-        "bookAddedAt": "13-12-2024 21:17:52",
-        "bookLastUpdatedAt": ""
+        "isbn": 95719,
+        "year": 2023,
+        "price": 200,
+        "quantity": 2,
+        "bookAddedAt": "13-12-2024 21:25:08",
+        "bookLastUpdatedAt": "13-12-2024 21:25:56"
     }
 ]

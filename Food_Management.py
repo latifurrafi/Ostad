@@ -51,6 +51,3 @@ while True:
     else:
         print("Invalid Choice!, Please Enter Again.")
         print("\n")
-
-
-
